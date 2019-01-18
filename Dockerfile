@@ -16,9 +16,6 @@ RUN addgroup -g 1000 node \
         linux-headers \
         make \
         python \
-        bash \
-        zlib-dev \
-        libpng-dev \
   # gpg keys listed at https://github.com/nodejs/node#release-team
   && for key in \
     94AE36675C464D64BAFA68DD7434390BDBE9B9C5 \
@@ -68,3 +65,5 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
   && ln -s /opt/yarn-v$YARN_VERSION/bin/yarnpkg /usr/local/bin/yarnpkg \
   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz \
   && apk del .build-deps-yarn
+
+RUN apk add yarn g++ make bash zlib-dev libpng-dev
