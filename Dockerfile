@@ -66,4 +66,4 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz \
   && apk del .build-deps-yarn
 
-RUN apk add yarn g++ make bash zlib-dev libpng-dev
+RUN apk add g++ make bash zlib-dev libpng-dev autoconf automake libc6-compat libjpeg-turbo-dev rsync
