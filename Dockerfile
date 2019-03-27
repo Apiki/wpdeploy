@@ -66,4 +66,6 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz \
   && apk del .build-deps-yarn
 
-RUN apk add g++ make bash zlib-dev libpng-dev autoconf automake libc6-compat libjpeg-turbo-dev rsync openssh-client sudo
+RUN apk add g++ make bash zlib-dev libpng-dev autoconf automake libc6-compat libjpeg-turbo-dev rsync openssh-client sudo git
+
+RUN cd /usr/bin && curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && mv /usr/bin/wp-cli.phar /usr/bin/wp && chmod +x /usr/bin/wp
