@@ -70,4 +70,6 @@ RUN apk add g++ make bash zlib-dev libpng-dev autoconf automake libc6-compat lib
 
 RUN docker-php-ext-install xsl
 
+RUN docker-php-ext-install gd
+
 RUN cd /usr/bin && curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && mv /usr/bin/wp-cli.phar /usr/bin/wp && chmod +x /usr/bin/wp
