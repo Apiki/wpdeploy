@@ -66,7 +66,7 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz \
   && apk del .build-deps-yarn
 
-RUN apk add bash zlib-dev libpng-dev autoconf automake libc6-compat libjpeg-turbo-dev rsync openssh-client sudo git libxslt-dev php7-phpdbg
+RUN apk add g++ make bash zlib-dev libpng-dev autoconf automake libc6-compat libjpeg-turbo-dev rsync openssh-client sudo git libxslt-dev php7-phpdbg
 
 RUN docker-php-ext-install xsl
 
