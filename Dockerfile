@@ -11,10 +11,11 @@ RUN apk add --no-cache \
     php7-mbstring \
     php7-openssl \
     php7-phar \
+    php7-phpdbg \
     php7-simplexml \
     php7-tokenizer \
-    php7-xmlwriter \
     php7-xml \
+    php7-xmlwriter \
     php7-xsl
 
 # Install Composer
@@ -33,7 +34,6 @@ RUN apk add --no-cache \
     libxslt-dev \
     make \
     openssh-client \
-    php7-phpdbg \
     rsync \
     sudo \
     zlib-dev
