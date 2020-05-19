@@ -6,6 +6,7 @@ WORKDIR /app
 RUN apk add --no-cache \
     curl \
     php7 \
+    php7-ast \
     php7-ctype \
     php7-gd \
     php7-json \
