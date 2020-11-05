@@ -39,7 +39,9 @@ RUN apk add --no-cache \
     openssh-client \
     rsync \
     sudo \
-    zlib-dev
+    zlib-dev \
+    nasm \
+    libtool
 
 # Install WP Cli
 RUN cd /usr/bin && \
