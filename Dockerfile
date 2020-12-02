@@ -43,6 +43,14 @@ RUN apk add --no-cache \
     nasm \
     libtool
 
+# Install Python 2.7
+ENV PYTHONUNBUFFERED=1
+RUN apk add --no-cache python2 && \
+    python -m ensurepip && \
+    rm -r /usr/lib/python*/ensurepip && \
+    pip install --upgrade pip setuptools && \
+    rm -r /root/.cache    
+
 # Install WP Cli
 RUN cd /usr/bin && \
     curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
