@@ -44,8 +44,7 @@ RUN apk add --no-cache \
 
 # Install Python 3
 ENV PYTHONUNBUFFERED=1
-RUN apk add --no-cache python3 py3-pip py3-setuptools && \
-    rm -r /root/.cache
+RUN apk add --no-cache python3 py3-pip py3-setuptools
 
 # Install WP Cli
 RUN cd /usr/bin && \
