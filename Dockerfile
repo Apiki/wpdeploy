@@ -1,25 +1,24 @@
-FROM node:lts-alpine
+FROM node:lts-alpine3.20
 
 WORKDIR /app
 
 # Install PHP
 RUN apk add --no-cache \
     curl \
-    php7 \
-    php7-ast \
-    php7-ctype \
-    php7-gd \
-    php7-json \
-    php7-mbstring \
-    php7-openssl \
-    php7-phar \
-    php7-phpdbg \
-    php7-simplexml \
-    php7-tokenizer \
-    php7-xml \
-    php7-xmlreader \
-    php7-xmlwriter \
-    php7-xsl
+    php83 \
+    php83-ctype \
+    php83-gd \
+    php83-json \
+    php83-mbstring \
+    php83-openssl \
+    php83-phar \
+    php83-phpdbg \
+    php83-simplexml \
+    php83-tokenizer \
+    php83-xml \
+    php83-xmlreader \
+    php83-xmlwriter \
+    php83-xsl
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -43,16 +42,16 @@ RUN apk add --no-cache \
     nasm \
     libtool
 
-# Install Python 2.7
+# Install Python 3
 ENV PYTHONUNBUFFERED=1
-RUN apk add --no-cache python2 && \
-    python -m ensurepip && \
-    rm -r /usr/lib/python*/ensurepip && \
-    pip install --upgrade pip setuptools && \
-    rm -r /root/.cache    
+RUN apk add --no-cache python3 py3-pip py3-setuptools && \
+    rm -r /root/.cache
 
 # Install WP Cli
 RUN cd /usr/bin && \
     curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
     mv /usr/bin/wp-cli.phar /usr/bin/wp && \
     chmod +x /usr/bin/wp
+
+# Install AWS CLI
+RUN apk add --no-cache aws-cli
