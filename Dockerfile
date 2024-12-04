@@ -5,6 +5,7 @@ WORKDIR /app
 # Install PHP
 RUN apk add --no-cache \
     curl \
+    jq \
     php83 \
     php83-ctype \
     php83-gd \
@@ -45,6 +46,7 @@ RUN apk add --no-cache \
 # Install Python 3
 ENV PYTHONUNBUFFERED=1
 RUN apk add --no-cache python3 py3-pip py3-setuptools
+RUN mv /usr/lib/python3.12/EXTERNALLY-MANAGED /usr/lib/python3.12/EXTERNALLY-MANAGED.old
 
 # Install WP Cli
 RUN cd /usr/bin && \
